@@ -82,7 +82,15 @@ namespace AnonSender
 
     public void ReloadTimeZone()
     {
-      labelTimeZone.Text = "Time Zone: " + Properties.Settings.Default["TimeZone"].ToString();
+      string timeZone = Properties.Settings.Default["TimeZone"].ToString();
+      labelTimeZone.Text = "Time Zone: " + timeZone;
+      foreach (TimeZoneInfo z in TimeZoneInfo.GetSystemTimeZones())
+      {
+        if (timeZone == z.Id)
+        {
+          labelTimeZone.Text = z.DisplayName;
+        }
+      }
     }
 
     public void ReloadLetterGrid()
