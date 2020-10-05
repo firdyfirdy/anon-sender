@@ -36,15 +36,15 @@ namespace AnonSender.Helper
           }
           if (sb.ToString().Contains("DOMC"))
           {
-            sb.Replace("DOMC", char.ToUpper(domc[0]) + domc.Substring(1)); //  = ambil domain tanpa . ( doamin ) tapi diawal dipake kapital ( Doamin )
+            sb.Replace("DOMC", char.ToUpper(domc[0]) + domc.Substring(1)); //  = ambil domain tanpa . ( domain ) tapi diawal dipake kapital ( Domain )
           }
           if (sb.ToString().Contains("DOMs"))
           {
-            sb.Replace("DOMs", domc); //  = ambil domain tanpa . domain ( doamin )
+            sb.Replace("DOMs", domc); //  = ambil domain tanpa . domain ( domain )
           }
           if (sb.ToString().Contains("DOMAIN"))
           {
-            sb.Replace("DOMAIN", provider); // DOMAIN = ambil domain sama . nya ( doamin.com )
+            sb.Replace("DOMAIN", provider); // DOMAIN = ambil domain sama . nya ( domain.com )
           }
         }
 
