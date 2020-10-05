@@ -1,0 +1,20 @@
+V1.1
+1. Proxy dibuat pake settings [Solved]
+2. Delete attachment di file letter [Solved]
+4. Windows Form bisa didrag [Solved]
+
+V1.2
+1. Abis send, sender seakan2 null karna disuruh milih lagi [Solved]
+2. Replace juga di attachment [Solved]
+
+V1.3
+1. Setiap update / Save Success langsung close [Solved]
+2. Error saat sent dimunculin [Solved]
+
+V1.4
+1. Proxy ada 2 pilihan Http dan Socks5, default socks5 [Solved]
+2. Tambahin attachment name, dan bisa direplace make replacer [Solved]
+3. Tambah tag EMAILURLSILENTCODERS buat replace ke base64 email [Solved]
+BUG:
+1. Attachment looping isinya [Solved]
+2. Name di attachment gabsia kosong [Solved]
