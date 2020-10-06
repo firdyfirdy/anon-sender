@@ -16,8 +16,9 @@ namespace AnonSender.Helper
     public string DoReplace(string message, string email)
     {
       Helpers helpers = new Helpers();
-      StringBuilder sb = new StringBuilder(message);
+      StringBuilder sb = new StringBuilder(Uri.UnescapeDataString(message));
 
+      Console.WriteLine(sb);
 
       try
       {
@@ -30,87 +31,83 @@ namespace AnonSender.Helper
           string provider = words[1];
           string domc = provider.Split('.')[0];
 
-          if (sb.ToString().Contains("USER"))
+          if (sb.ToString().ToLower().Contains("[emailusername]"))
           {
-            sb.Replace("USER", user); // ambil username dalam email from name
+            sb.Replace("[emailusername]", user); // ambil username dalam email from name
           }
-          if (sb.ToString().Contains("DOMC"))
+          if (sb.ToString().ToLower().Contains("[domainuc]"))
           {
-            sb.Replace("DOMC", char.ToUpper(domc[0]) + domc.Substring(1)); //  = ambil domain tanpa . ( domain ) tapi diawal dipake kapital ( Domain )
+            sb.Replace("[domainuc]", char.ToUpper(domc[0]) + domc.Substring(1)); //  = ambil domain tanpa . ( domain ) tapi diawal dipake kapital ( Domain )
           }
-          if (sb.ToString().Contains("DOMs"))
+          if (sb.ToString().ToLower().Contains("[domain]"))
           {
-            sb.Replace("DOMs", domc); //  = ambil domain tanpa . domain ( domain )
+            sb.Replace("[domain]", domc); //  = ambil domain tanpa . domain ( domain )
           }
-          if (sb.ToString().Contains("DOMAIN"))
+          if (sb.ToString().ToLower().Contains("[dotdomain]"))
           {
-            sb.Replace("DOMAIN", provider); // DOMAIN = ambil domain sama . nya ( domain.com )
+            sb.Replace("[dotdomain]", provider); // DOMAIN = ambil domain sama . nya ( domain.com )
           }
         }
 
-        if (sb.ToString().Contains("SILENTCODERSHOUR24"))
+        if (sb.ToString().ToLower().Contains("[24hour]"))
         {
-          sb.Replace("SILENTCODERSHOUR24", helpers.SetDateTime("HH:mm:ss", TimeZoneid)); 
+          sb.Replace("[24hour]", helpers.SetDateTime("HH:mm:ss", TimeZoneid)); 
         }
-        if (sb.ToString().Contains("SILENTCODERSHOUR12"))
+        if (sb.ToString().ToLower().Contains("[12hour]"))
         {
-          sb.Replace("SILENTCODERSHOUR12", helpers.SetDateTime("hh:mm:ss", TimeZoneid));
+          sb.Replace("[12hour]", helpers.SetDateTime("hh:mm:ss", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSMINUTE"))
+        if (sb.ToString().ToLower().Contains("[minute]"))
         {
-          sb.Replace("SILENTCODERSMINUTE", helpers.SetDateTime("mm", TimeZoneid));
+          sb.Replace("[minute]", helpers.SetDateTime("mm", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSSECOND"))
+        if (sb.ToString().ToLower().Contains("[second]"))
         {
-          sb.Replace("SILENTCODERSSECOND", helpers.SetDateTime("ss", TimeZoneid)); 
+          sb.Replace("[second]", helpers.SetDateTime("ss", TimeZoneid)); 
         }
-        if (sb.ToString().Contains("SILENTCODERSDAY"))
+        if (sb.ToString().ToLower().Contains("[day]"))
         {
-          sb.Replace("SILENTCODERSDAY", helpers.SetDateTime("dddd", TimeZoneid));
+          sb.Replace("[day]", helpers.SetDateTime("dddd", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSMONTH"))
+        if (sb.ToString().ToLower().Contains("[month]"))
         {
-          sb.Replace("SILENTCODERSMONTH", helpers.SetDateTime("MMMM", TimeZoneid));
+          sb.Replace("[month]", helpers.SetDateTime("MMMM", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSYEAR"))
+        if (sb.ToString().ToLower().Contains("[year]"))
         {
-          sb.Replace("SILENTCODERSYEAR", helpers.SetDateTime("yyyy", TimeZoneid));
+          sb.Replace("[year]", helpers.SetDateTime("yyyy", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSFULLDATE"))
+        if (sb.ToString().ToLower().Contains("[fulldatetime]"))
         {
-          sb.Replace("SILENTCODERSFULLDATE", helpers.SetDateTime("MMMM dd, yyyy, HH:mm:ss tt", TimeZoneid));
+          sb.Replace("[fulldate]", helpers.SetDateTime("MMMM dd, yyyy, HH:mm:ss tt", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERS2FULLDATE"))
+        if (sb.ToString().ToLower().Contains("[fulldatetime1]"))
         {
-          sb.Replace("SILENTCODERS2FULLDATE", helpers.SetDateTime("dd/mm/yyyy, HH:mm:ss tt", TimeZoneid));
+          sb.Replace("[fulldate]", helpers.SetDateTime("dd/mm/yyyy, HH:mm:ss tt", TimeZoneid));
         }
-        if (sb.ToString().Contains("SILENTCODERSDATEONLY1"))
+        if (sb.ToString().ToLower().Contains("[fulldate]"))
         {
-          sb.Replace("SILENTCODERSDATEONLY1", helpers.SetDateTime("ddd, mm dd, yyyy", TimeZoneid));  //Mon, July 13, 2020
+          sb.Replace("[fulldate]", helpers.SetDateTime("ddd, mm dd, yyyy", TimeZoneid));  //Mon, July 13, 2020
         }
-        if (sb.ToString().Contains("SILENTCODERSDATEONLY2"))
+        if (sb.ToString().ToLower().Contains("[fulldate1]"))
         {
-          sb.Replace("SILENTCODERSDATEONLY2", helpers.SetDateTime("dd/mm/yyyy", TimeZoneid));  // = 7/13/2020
+          sb.Replace("[fulldate1]", helpers.SetDateTime("dd/mm/yyyy", TimeZoneid));  // = 7/13/2020
         }
-        if (sb.ToString().Contains("SILENTCODERSEMAIL"))
+        if (sb.ToString().ToLower().Contains("[email]"))
         {
-          sb.Replace("SILENTCODERSEMAIL", email); //  replace email
+          sb.Replace("[email]", email); //  replace email
         }
-        if (sb.ToString().Contains("SILENTCODERSLIMAHURUF"))
+        if (sb.ToString().ToLower().Contains("[random5]"))
         {
-          sb.Replace("SILENTCODERSLIMAHURUF", helpers.RandomAlphabet(5)); //  generate 5 alphabetic
+          sb.Replace("[random5]", helpers.RandomAlphabet(5)); //  generate 5 alphabetic
         }
-        if (sb.ToString().Contains("SILENTCODERSBANYAKHURUF"))
+        if (sb.ToString().ToLower().Contains("[random50]"))
         {
-          sb.Replace("SILENTCODERSBANYAKHURUF", helpers.RandomAlphabet(50)); //  generate 50 alphabetic
+          sb.Replace("[random50]", helpers.RandomAlphabet(50)); //  generate 50 alphabetic
         }
-        if (sb.ToString().Contains("EMAILURLSILENTC0DERS"))
+        if (sb.ToString().ToLower().Contains("[emailtobase64]"))
         {
-          sb.Replace("EMAILURLSILENTC0DERS", Helpers.Base64Encode(email)); // Replace email to base64
-        }
-        if (sb.ToString().Contains("EMAILURLSILENTCODERS"))
-        {
-          sb.Replace("EMAILURLSILENTCODERS", Helpers.Base64Encode(email)); // Replace email to base64
+          sb.Replace("[emailtobase64]", Helpers.Base64Encode(email)); // Replace email to base64
         }
 
       }
