@@ -66,6 +66,9 @@ It Works for Email Body, Subject, From Email and even From Name!
 - Get domain of email receiver with dot (.). Example: nonsender@firdy.dev => .dev
 ```
 
+## License(s)
+<b>This source code and Software is free for non-commercial use.</b>
+
 ## Donations
 https://paypal.me/itsfirdy
 
