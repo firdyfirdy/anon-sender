@@ -70,5 +70,5 @@ It Works for Email Body, Subject, From Email and even From Name!
 https://paypal.me/itsfirdy
 
 ## Credits
-Icons: https://www.flaticon.com/
-Email Library: http://www.mimekit.net/
+- Icons: https://www.flaticon.com/
+- Email Library: http://www.mimekit.net/
