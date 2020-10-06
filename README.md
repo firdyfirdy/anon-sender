@@ -60,10 +60,10 @@ It Works for Email Body, Subject, From Email and even From Name!
 - Get domain of email receiver with uppercase in first word. Example: anonsender@firdy.dev => Dev
 
 [domain]
-- Get domain of email receiver. Example: nonsender@firdy.dev => dev
+- Get domain of email receiver. Example: anonsender@firdy.dev => dev
 
 [dotdomain]
-- Get domain of email receiver with dot (.). Example: nonsender@firdy.dev => .dev
+- Get domain of email receiver with dot (.). Example: anonsender@firdy.dev => .dev
 ```
 
 ## License(s)
